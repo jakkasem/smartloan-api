@@ -1,0 +1,122 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["multiSchema"]
+  output          = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["loan"]
+}
+
+model LoanApplication {
+  id                Int      @id @default(autoincrement())
+  customerName      String
+  nationalId        String
+  dob               DateTime
+  address           String
+  phoneNumber       String
+  email             String
+  maritalStatusId   Int
+  maritalStatus     RefMaritalStatus @relation(fields: [maritalStatusId], references: [id])
+  companyName       String?
+  positionId        Int?
+  position          RefPosition? @relation(fields: [positionId], references: [id])
+  employmentPeriod  String?
+  annualIncome      Float?
+  officeNumber      String?
+  loanAmount        Float
+  purposeId         Int
+  purpose           RefPurpose @relation(fields: [purposeId], references: [id])
+  termId            Int
+  term              RefTerm @relation(fields: [termId], references: [id])
+  homeOwnershipId   Int
+  homeOwnership     RefHomeOwnership @relation(fields: [homeOwnershipId], references: [id])
+  debts             LoanApplicationDebt[]
+  status            String   @default("PENDING")
+  aiScore           Float?
+  aiRisk            String?
+  aiUpdatedAt       DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@schema("loan")
+}
+
+model RefMaritalStatus {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  nameEn    String
+  nameTh    String
+  isActive  Boolean  @default(true)
+  applications LoanApplication[]
+
+  @@schema("loan")
+}
+
+model RefPosition {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  nameEn    String
+  nameTh    String
+  isActive  Boolean  @default(true)
+  applications LoanApplication[]
+
+  @@schema("loan")
+}
+
+model RefDebtType {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  nameEn    String
+  nameTh    String
+  isActive  Boolean  @default(true)
+  applicationDebts LoanApplicationDebt[]
+
+  @@schema("loan")
+}
+
+model LoanApplicationDebt {
+  applicationId Int
+  application   LoanApplication @relation(fields: [applicationId], references: [id])
+  debtTypeId    Int
+  debtType      RefDebtType @relation(fields: [debtTypeId], references: [id])
+
+  @@id([applicationId, debtTypeId])
+  @@schema("loan")
+}
+
+model RefPurpose {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  nameEn    String
+  nameTh    String
+  isActive  Boolean  @default(true)
+  applications LoanApplication[]
+
+  @@schema("loan")
+}
+
+model RefTerm {
+  id           Int      @id @default(autoincrement())
+  code         String   @unique
+  nameEn       String
+  nameTh       String
+  displayLabel String
+  isActive     Boolean  @default(true)
+  applications LoanApplication[]
+
+  @@schema("loan")
+}
+
+model RefHomeOwnership {
+  id        Int      @id @default(autoincrement())
+  code      String   @unique
+  nameEn    String
+  nameTh    String
+  isActive  Boolean  @default(true)
+  applications LoanApplication[]
+
+  @@schema("loan")
+}

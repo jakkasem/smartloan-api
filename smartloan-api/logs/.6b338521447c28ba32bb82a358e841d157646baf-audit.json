@@ -1,0 +1,45 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\.6b338521447c28ba32bb82a358e841d157646baf-audit.json",
+    "files": [
+        {
+            "date": 1774423528170,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-03-25.log",
+            "hash": "2c6169f625134a7de179578fcb4449baf7507dc1a58c76c10c07d1f12e3168a4"
+        },
+        {
+            "date": 1774520178569,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-03-26.log",
+            "hash": "63e42abbdaf0408cb7970e0b2a529e0ac92fed5ae85f56363a65e1f713ba4052"
+        },
+        {
+            "date": 1774842825323,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-03-30.log",
+            "hash": "1413307100599699650b0c7ba224b1b8a48979a395b2bb8975988465869f585d"
+        },
+        {
+            "date": 1774930273496,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-03-31.log",
+            "hash": "edfaea372b563691281a4efb7b216c2445da402e2e4ca017eff9cbf59baa46e5"
+        },
+        {
+            "date": 1775024750693,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-04-01.log",
+            "hash": "06002c8fe2aba0a68d24f0b6e9f4d0b442adc155ca2cc28aec80212cd5d44e0f"
+        },
+        {
+            "date": 1775118886868,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-04-02.log",
+            "hash": "3652578ecec4a6f4d103efc43ba334ba4f1060cbd48446ebf30fbb60a9c2db95"
+        },
+        {
+            "date": 1775182307915,
+            "name": "C:\\Users\\fthuser\\Desktop\\Task_4_Loan\\smartloan-api\\logs\\2026-04-03.log",
+            "hash": "74020700a4c94ebf780094da3e6ec120829931b5d32ee0f2be1185bda5ab87a3"
+        }
+    ],
+    "hashType": "sha256"
+}
