@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 30
+    },
+    "auditLog": "C:\\ClaudeWorkspace\\github\\smartloan-api\\logs\\.7833c64fd67106283aee86341ca188fb48f5f1de-audit.json",
+    "files": [
+        {
+            "date": 1775191583598,
+            "name": "C:\\ClaudeWorkspace\\github\\smartloan-api\\logs\\2026-04-03.log",
+            "hash": "efde41ac25a8dbc5846e081ab8867cc7fbf6baf19d6a81197d77e4a1b1bb6c49"
+        }
+    ],
+    "hashType": "sha256"
+}

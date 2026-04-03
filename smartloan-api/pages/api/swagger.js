@@ -10,7 +10,12 @@ export default function handler(req, res) {
         version: '1.0.0',
         description: 'Loan Management REST API — Node.js + Next.js + Prisma + PostgreSQL',
       },
-      servers: [{ url: 'http://localhost:3001', description: 'Local dev' }],
+      servers: [
+        {
+          url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3001',
+          description: process.env.RENDER_EXTERNAL_URL ? 'Production (Render)' : 'Local dev',
+        },
+      ],
       components: {
         securitySchemes: {
           ApiKeyAuth: {
