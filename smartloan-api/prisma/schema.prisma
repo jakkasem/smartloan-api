@@ -120,3 +120,39 @@ model RefHomeOwnership {
 
   @@schema("loan")
 }
+
+model RefIncomeCate {
+  id       Int     @id @map("income_cat_id")
+  nameEn   String  @map("category_name_en")
+  nameTh   String  @map("category_name_th")
+  isActive Boolean @default(true) @map("is_active")
+
+  @@schema("loan")
+}
+
+model RefApplicationType {
+  id       Int     @id @map("app_type_id")
+  nameEn   String  @map("app_type_name_en")
+  nameTh   String  @map("app_type_name_th")
+  isActive Boolean @default(true) @map("is_active")
+
+  @@schema("loan")
+}
+
+model RefPaymentType {
+  id       Int     @id @map("int_pay_cat_id")
+  nameEn   String  @map("pay_name_en")
+  nameTh   String  @map("pay_name_th")
+  isActive Boolean @default(true) @map("is_active")
+
+  @@schema("loan")
+}
+
+model RefLoanCondition {
+  id       String  @id @map("condition_id")
+  nameEn   String  @map("risk_level_en")
+  nameTh   String  @map("risk_level_th")
+  isActive Boolean @default(true) @map("is_active")
+
+  @@schema("loan")
+}

@@ -1,6 +1,6 @@
 import * as refService from '../services/refService';
 
-const validTypes = ['maritalStatus', 'position', 'debtType', 'purpose', 'term', 'homeOwnership'];
+const validTypes = ['maritalStatus', 'position', 'debtType', 'purpose', 'term', 'homeOwnership', 'incomeCate', 'applicationType', 'paymentType', 'loanCondition'];
 
 export async function getRefList(req, res) {
   if (req.method !== 'GET')

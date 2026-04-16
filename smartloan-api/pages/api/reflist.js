@@ -14,8 +14,8 @@ import { getRefList } from '../../controllers/refController';
  *         name: type
  *         schema:
  *           type: string
- *           enum: [maritalStatus, position, debtType, purpose, term, homeOwnership]
- *         description: Specific ref type (omit to get all)
+ *           enum: [maritalStatus, position, debtType, purpose, term, homeOwnership, incomeCate, applicationType, paymentType, loanCondition]
+ *         description: "Ref type to retrieve (omit to get all). maritalStatus, position, debtType, purpose, term, homeOwnership, incomeCate, applicationType, paymentType, loanCondition"
  *     responses:
  *       200:
  *         description: Reference data
