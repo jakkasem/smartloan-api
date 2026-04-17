@@ -1,11 +1,14 @@
 import prisma from '../lib/prisma';
 
 const include = {
-  maritalStatus: true,
-  position:      true,
-  purpose:       true,
-  term:          true,
-  homeOwnership: true,
+  maritalStatus:   true,
+  position:        true,
+  purpose:         true,
+  term:            true,
+  homeOwnership:   true,
+  applicationType: true,
+  incomeCate:      true,
+  interestPayType: true,
   debts: { include: { debtType: true } },
 };
 

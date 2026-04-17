@@ -23,17 +23,32 @@ model LoanApplication {
   companyName       String?
   positionId        Int?
   position          RefPosition? @relation(fields: [positionId], references: [id])
-  employmentPeriod  String?
-  annualIncome      Float?
-  officeNumber      String?
-  loanAmount        Float
-  purposeId         Int
-  purpose           RefPurpose @relation(fields: [purposeId], references: [id])
-  termId            Int
-  term              RefTerm @relation(fields: [termId], references: [id])
-  homeOwnershipId   Int
-  homeOwnership     RefHomeOwnership @relation(fields: [homeOwnershipId], references: [id])
-  debts             LoanApplicationDebt[]
+  employmentPeriod    Int?
+  annualIncome        Float?
+  officeNumber        String?
+  loanAmount          Float
+  purposeId           Int
+  purpose             RefPurpose          @relation(fields: [purposeId], references: [id])
+  termId              Int
+  term                RefTerm             @relation(fields: [termId], references: [id])
+  homeOwnershipId     Int
+  homeOwnership       RefHomeOwnership    @relation(fields: [homeOwnershipId], references: [id])
+  applicationTypeId   Int?                @map("applicationType")
+  applicationType     RefApplicationType? @relation(fields: [applicationTypeId], references: [id])
+  incomeCateId        Int?                @map("IncomeCatgory")
+  incomeCate          RefIncomeCate?      @relation(fields: [incomeCateId], references: [id])
+  debtIncRatio        Float?
+  interestRate        Float?              @map("InterestRate")
+  grade               String?
+  loanCondition       Int?
+  installment         Float?
+  interestPayTypeId   Int?                @map("interestPayType")
+  interestPayType     RefPaymentType?     @relation(fields: [interestPayTypeId], references: [id])
+  totalPayment        Float?
+  totalRecPrincipal   Float?
+  recoveries          Float?
+  finalDate           String?
+  debts               LoanApplicationDebt[]
   status            String   @default("PENDING")
   aiScore           Float?
   aiRisk            String?
@@ -122,28 +137,31 @@ model RefHomeOwnership {
 }
 
 model RefIncomeCate {
-  id       Int     @id @map("income_cat_id")
-  nameEn   String  @map("category_name_en")
-  nameTh   String  @map("category_name_th")
-  isActive Boolean @default(true) @map("is_active")
+  id           Int               @id @map("income_cat_id")
+  nameEn       String            @map("category_name_en")
+  nameTh       String            @map("category_name_th")
+  isActive     Boolean           @default(true) @map("is_active")
+  applications LoanApplication[]
 
   @@schema("loan")
 }
 
 model RefApplicationType {
-  id       Int     @id @map("app_type_id")
-  nameEn   String  @map("app_type_name_en")
-  nameTh   String  @map("app_type_name_th")
-  isActive Boolean @default(true) @map("is_active")
+  id           Int               @id @map("app_type_id")
+  nameEn       String            @map("app_type_name_en")
+  nameTh       String            @map("app_type_name_th")
+  isActive     Boolean           @default(true) @map("is_active")
+  applications LoanApplication[]
 
   @@schema("loan")
 }
 
 model RefPaymentType {
-  id       Int     @id @map("int_pay_cat_id")
-  nameEn   String  @map("pay_name_en")
-  nameTh   String  @map("pay_name_th")
-  isActive Boolean @default(true) @map("is_active")
+  id           Int               @id @map("int_pay_cat_id")
+  nameEn       String            @map("pay_name_en")
+  nameTh       String            @map("pay_name_th")
+  isActive     Boolean           @default(true) @map("is_active")
+  applications LoanApplication[]
 
   @@schema("loan")
 }
