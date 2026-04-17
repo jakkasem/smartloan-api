@@ -14,18 +14,16 @@ const include = {
 
 export async function createLoanApplication(data) {
   const { debtTypeIds = [], ...loanData } = data;
-  return prisma.$transaction(async (tx) => {
-    return tx.loanApplication.create({
-      data: {
-        ...loanData,
-        dob:    new Date(loanData.dob),
-        status: 'PENDING',
-        debts: {
-          create: debtTypeIds.map((id) => ({ debtTypeId: id })),
-        },
+  return prisma.loanApplication.create({
+    data: {
+      ...loanData,
+      dob:    new Date(loanData.dob),
+      status: 'PENDING',
+      debts: {
+        create: debtTypeIds.map((id) => ({ debtTypeId: id })),
       },
-      include,
-    });
+    },
+    include,
   });
 }
 
