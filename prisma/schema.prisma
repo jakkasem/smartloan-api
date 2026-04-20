@@ -23,7 +23,7 @@ model LoanApplication {
   companyName       String?
   positionId        Int?
   position          RefPosition? @relation(fields: [positionId], references: [id])
-  employmentPeriod    Int?
+  employmentPeriod    Float?
   annualIncome        Float?
   officeNumber        String?
   loanAmount          Float

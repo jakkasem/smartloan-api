@@ -39,7 +39,7 @@ export default function handler(req, res) {
               maritalStatusId:  { type: 'integer', example: 1 },
               companyName:      { type: 'string', example: 'บริษัท ตัวอย่าง จำกัด' },
               positionId:       { type: 'integer', example: 7 },
-              employmentPeriod: { type: 'integer', example: 3 },
+              employmentPeriod: { type: 'number', example: 3.5 },
               annualIncome:     { type: 'number', example: 360000 },
               officeNumber:     { type: 'string', example: '021234567' },
               loanAmount:       { type: 'number', example: 100000 },
