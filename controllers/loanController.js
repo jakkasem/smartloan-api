@@ -13,6 +13,7 @@ export async function applyLoan(req, res) {
 
   // Fire-and-forget webhook
   const webhookPayload = {
+    id:                   String(loan.id),
     annual_inc:           data.annualIncome ?? null,
     application_type_cat: data.applicationTypeId ?? null,
     dti:                  data.debtIncRatio ?? null,
