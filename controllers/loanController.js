@@ -10,6 +10,7 @@ export async function applyLoan(req, res) {
 
   const data = parseBody(loanApplySchema, req.body);
   const loan = await loanService.createLoanApplication(data);
+  logger.info({ event: 'loan_created', loanId: loan.id });
 
   // Fire-and-forget webhook
   const webhookPayload = {
@@ -44,8 +45,10 @@ export async function applyLoan(req, res) {
     finalDate:         data.finalDate ?? '',
   };
 
+  logger.info({ event: 'webhook_payload', payload: webhookPayload });
+
   if (WEBHOOK_URL) {
-    logger.info({ event: 'webhook_before', url: WEBHOOK_URL, payload: webhookPayload });
+    logger.info({ event: 'webhook_before', url: WEBHOOK_URL });
     fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
