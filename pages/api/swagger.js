@@ -12,8 +12,8 @@ export default function handler(req, res) {
       },
       servers: [
         {
-          url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:9000',
-          description: process.env.RENDER_EXTERNAL_URL ? 'Production (Render)' : 'Local dev',
+          url: process.env.API_BASE_URL || 'http://localhost:9000',
+          description: process.env.API_BASE_URL ? 'Production' : 'Local dev',
         },
       ],
       components: {
