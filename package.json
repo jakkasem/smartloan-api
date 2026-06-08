@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
-    "prod": "next prod -p 3001",
+    "dev": "next dev -p 9000",
+    "prod": "next prod -p 9000",
     "build": "next build",
-    "start": "next start -p 3001",
+    "start": "next start -p 9000",
     "db:generate": "prisma generate"
   },
   "dependencies": {

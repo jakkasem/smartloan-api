@@ -12,7 +12,7 @@ export default function handler(req, res) {
       },
       servers: [
         {
-          url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3001',
+          url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:9000',
           description: process.env.RENDER_EXTERNAL_URL ? 'Production (Render)' : 'Local dev',
         },
       ],
